@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block menu %}
+
+{% endblock %}
+{% block content %}
+    <h1>To-Do list</h1>
+<li>
+    <a href="{% url 'task_add' %}">Add task</a><br><br>
+</li>
+{% for task in tasks %}
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Due date</th>
+            <th>State</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>{{ task.name }}</td>
+            <td>{{ task.due_date }}</td>
+            <td>{{ task.state }}</td>
+            <td>{{ task.description }}</td>
+
+        </tr>
+    </table>
+<p><a href="{% url 'task_detail' task.pk %}">View to-do</a></p>
+<p><a href="{% url 'task_update' task.pk %}">Update</a></p>
+<p><a href="{% url 'task_delete' task.pk %}">Delete</a></p>
+{% endfor %}
+{% endblock %}

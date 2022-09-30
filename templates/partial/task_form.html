@@ -1,0 +1,31 @@
+{% csrf_token %}
+<div class="form_row">
+    {% if errors.name %}
+    <p class="error">{{ errors.name }}</p>
+    {% endif %}
+            <label for="name">Name: </label>
+            <input id="name" name="name" type="text" value="{{ task.name }}">
+        </div>
+        <div class="form_row">
+            <label for="description">Description: </label>
+            <textarea name="description" id="description" cols="40" rows="10">{{ task.description }}</textarea>
+        </div>
+        <div class="form_row">
+            <label for="due_date">Due date: </label>
+            <input id="due_date" name="due_date" type="text" value="{{ task.due_date }}">
+        </div>
+            <div class="form_row">
+            <label for="state">State: </label>
+            <select name="state" id="state">
+                {% for choice in choices %}
+                    {% if task.state == choice.0 %}
+                        <option value="{{ choice.0 }}" selected>{{ choice.1 }}</option>
+                     {% else %}
+                        <option value="{{ choice.0 }}">{{ choice.1 }}</option>
+                {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+<div class="form_row">
+    <input  type="submit" value="{{ button_text }}">
+</div>

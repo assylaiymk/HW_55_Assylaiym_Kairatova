@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}
+    To-do - {{ task.name }}
+{% endblock %}
+
+{% block menu %}
+<li>
+    <a href="{% url 'task_add' %}">Task add</a>
+</li>
+{% endblock %}
+
+{% block content %}
+    <h1>Do you want to delete tis task?</h1>
+    <p>Name: {{ task.name }}</p>
+    <p>Due date: {{ task.due_date }}</p>
+    <p>State: {{ task.state }}</p>
+    <p>Description: {{ task.description }}</p>
+    <form action="{% url 'confirm_delete' task.pk %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Yes">
+        <a href="{% url 'index' %}">No</a>
+    </form>
+{% endblock %}

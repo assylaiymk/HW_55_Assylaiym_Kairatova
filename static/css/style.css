@@ -1,0 +1,38 @@
+body{
+    font-family: Arial sans-serif;
+    background: white;
+    color: #222;
+    margin-top: 60px
+}
+table, th, td{
+    border: 1px solid;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td{
+    width: 20%;
+}
+.navbar {
+    display: block;
+    background: green;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    font-size: 0;
+    box-sizing: border-box;
+    padding: 2px 5px;
+}
+.container {
+    margin: 0 auto;
+    max-width: 1200px;
+}
+.menu {
+    font-size: 14px;
+    line-height: 1;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+}
