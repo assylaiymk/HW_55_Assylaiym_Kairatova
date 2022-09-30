@@ -36,3 +36,6 @@ th, td{
     margin: 0;
     display: inline-block;
 }
+.error{
+    color: red;
+}
